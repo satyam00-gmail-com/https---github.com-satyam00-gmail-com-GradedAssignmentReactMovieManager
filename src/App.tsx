@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MoviesComingList from "./components/MoviesComingList";
+import MoviesInTheatreList from "./components/MoviesInTheatreList";
+import TopRatedIndianList from "./components/TopRatedIndianList";
+import TopRatedMoviesList from "./components/TopRatedMoviesList";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavigationMenu from "./components/common/navigationMenu";
+import { Route, Routes, BrowserRouter} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+function App(){
+  return(
+    
+    <BrowserRouter>
+     <NavigationMenu/>
+    <Routes>
+      <Route path="/Coming-Soon" element={<MoviesComingList />}></Route>
+      <Route path="/Movies-in-Theaters" element={<MoviesInTheatreList />}></Route> 
+      <Route path="/Top-Rated-Indian" element={<TopRatedIndianList />}></Route> 
+      <Route path="/Top-Rated-Movies" element={<TopRatedMoviesList />}></Route>  
+      <Route path="/" element={<MoviesInTheatreList />}></Route>     
+    </Routes>
+  </BrowserRouter>
   );
-}
+};
 
 export default App;
